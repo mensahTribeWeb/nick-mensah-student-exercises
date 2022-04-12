@@ -15,7 +15,7 @@
 ✅ 12. /c/Users/mensa/playground/usa/pennsylvania/allegheny exists
 ✅ 13. /c/Users/mensa/playground/usa/michigan/wayne exists
 ✅ 14. /c/Users/mensa/playground/usa/ohio/cuyahoga/cleveland.txt exists
-❗️ 15. /c/Users/mensa/playground/usa/ohio/hamilton/cincinnati.txt does not exist
+✅ 15. /c/Users/mensa/playground/usa/ohio/hamilton/cincinnati.txt exists
 ❗️ 16. /c/Users/mensa/playground/usa/ohio/franklin/columbus.txt does not exist
 ❗️ 17. /c/Users/mensa/playground/usa/pennsylvania/allegheny/pittsburgh.txt does not exist
 ❗️ 18. /c/Users/mensa/playground/usa/michigan/wayne/detroit.txt does not exist
@@ -25,8 +25,8 @@
 ❗️ 22. /c/Users/mensa/playground/canada/british-columbia/prince-george.txt does not exist
 
 Total tests: 22
-Tests passed: 14
-Errors: 8
+Tests passed: 15
+Errors: 7
 
  You still need to make a few more changes.
  If you are having difficulty troubleshooting, try the following:
