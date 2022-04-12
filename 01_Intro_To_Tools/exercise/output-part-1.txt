@@ -16,22 +16,18 @@
 ✅ 13. /c/Users/mensa/playground/usa/michigan/wayne exists
 ✅ 14. /c/Users/mensa/playground/usa/ohio/cuyahoga/cleveland.txt exists
 ✅ 15. /c/Users/mensa/playground/usa/ohio/hamilton/cincinnati.txt exists
-❗️ 16. /c/Users/mensa/playground/usa/ohio/franklin/columbus.txt does not exist
-❗️ 17. /c/Users/mensa/playground/usa/pennsylvania/allegheny/pittsburgh.txt does not exist
-❗️ 18. /c/Users/mensa/playground/usa/michigan/wayne/detroit.txt does not exist
-❗️ 19. /c/Users/mensa/playground/canada/quebec/montreal.txt does not exist
-❗️ 20. /c/Users/mensa/playground/canada/quebec/quebec-city.txt does not exist
-❗️ 21. /c/Users/mensa/playground/canada/british-columbia/vancouver.txt does not exist
-❗️ 22. /c/Users/mensa/playground/canada/british-columbia/prince-george.txt does not exist
+✅ 16. /c/Users/mensa/playground/usa/ohio/franklin/columbus.txt exists
+✅ 17. /c/Users/mensa/playground/usa/pennsylvania/allegheny/pittsburgh.txt exists
+✅ 18. /c/Users/mensa/playground/usa/michigan/wayne/detroit.txt exists
+✅ 19. /c/Users/mensa/playground/canada/quebec/montreal.txt exists
+✅ 20. /c/Users/mensa/playground/canada/quebec/quebec-city.txt exists
+✅ 21. /c/Users/mensa/playground/canada/british-columbia/vancouver.txt exists
+✅ 22. /c/Users/mensa/playground/canada/british-columbia/prince-george.txt exists
 
 Total tests: 22
-Tests passed: 15
-Errors: 7
+Tests passed: 22
+Errors: 0
 
- You still need to make a few more changes.
- If you are having difficulty troubleshooting, try the following:
- - Use 'pwd' to print out your current working directory.
- - Check for typos in the names of folders or file paths.
- - When changing directories, '..' means up one directory. '.' means the current directory.
- - Reference Finder (Mac) or Explorer (PC) to make sure everything is in the correct location.
+Congratulations! All tests in Part 1 are passing.
+Continue on to Part 2 in the README.
 
