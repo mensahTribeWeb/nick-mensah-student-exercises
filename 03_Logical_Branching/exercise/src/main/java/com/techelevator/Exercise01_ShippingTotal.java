@@ -13,7 +13,8 @@ public class Exercise01_ShippingTotal {
     private final double OVER_40_LB_RATE = 0.75;
 
     /*
-    Scamper Shipping Company charges $0.50 per pound up to 40 pounds. After that, it's $0.75 for each additional pound.
+    Scamper Shipping Company charges $0.50 per pound up to 40 pounds. After that, it's $0.75 for
+    each additional pound.
     Implement the logic needed to calculate the shipping rate when provided a weight in pounds.
 
     Examples:
@@ -22,12 +23,23 @@ public class Exercise01_ShippingTotal {
     calculateShippingTotal(45) ➔ 23.75
      */
     public double calculateShippingTotal(int weightPounds) {
-        return 0;
+
+        double maxWeightCost =  (weightPounds * UP_TO_40_LB_RATE);
+        double overageWeightCost = (((weightPounds - MAX_WEIGHT_POUNDS)) * OVER_40_LB_RATE);
+        double baseRate = MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE; //20
+
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
+            return maxWeightCost;
+        } else {
+            return baseRate + overageWeightCost;
+        }
     }
 
     /*
-    Scamper Shipping Company now allows customers to provide a discount code to give them 10% off of their order.
-    Implement the logic to calculate the correct shipping rate when provided a weight in pounds and a boolean value for hasDiscount.
+    Scamper Shipping Company now allows customers to provide a discount code to give them 10% off
+     of their order.
+    Implement the logic to calculate the correct shipping rate when provided a weight in pounds
+    and a boolean value for hasDiscount.
 
     Examples:
     calculateShippingTotal(10, false) ➔ 5.0
@@ -38,7 +50,25 @@ public class Exercise01_ShippingTotal {
     calculateShippingTotal(45, true) ➔ 21.375
      */
     public double calculateShippingTotal(int weightPounds, boolean hasDiscount) {
-        return 0;
+        double maxWeightCost = (weightPounds * UP_TO_40_LB_RATE);
+        double overageWeightCost = (((weightPounds - MAX_WEIGHT_POUNDS)) * OVER_40_LB_RATE);
+        double baseRate = MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE; //20
+        double discountedMaxWeightCost = maxWeightCost - (maxWeightCost *.1);
+        double discountedOverageCost =(baseRate + overageWeightCost) - ((baseRate + overageWeightCost) * .1);;
+
+        if (weightPounds <= MAX_WEIGHT_POUNDS && hasDiscount) {
+            return discountedMaxWeightCost;
+        }
+        else if (weightPounds > MAX_WEIGHT_POUNDS && hasDiscount) {
+            return discountedOverageCost;
+        }
+        else if (weightPounds <= MAX_WEIGHT_POUNDS && !hasDiscount) {
+            return maxWeightCost;
+        }
+        else if (weightPounds > MAX_WEIGHT_POUNDS && !hasDiscount) {
+            return baseRate + overageWeightCost;
+        }
+        else{return 0;}
     }
 
     /*
@@ -53,6 +83,26 @@ public class Exercise01_ShippingTotal {
     calculateShippingTotal(45, 0.2) ➔ 19.0
      */
     public double calculateShippingTotal(int weightPounds, double discountPercentage) {
-        return 0;
+        double maxWeightCost = (weightPounds * UP_TO_40_LB_RATE);
+        double overageWeightCost = (((weightPounds - MAX_WEIGHT_POUNDS)) * OVER_40_LB_RATE);
+        double baseRate = MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE; //20
+        double openDiscountedMaxWeightCost = maxWeightCost - (maxWeightCost * discountPercentage);
+        double openDiscountedOverageCost =(baseRate + overageWeightCost) - ((baseRate + overageWeightCost) * discountPercentage);
+
+        if ((weightPounds <= MAX_WEIGHT_POUNDS) && (discountPercentage > 0)) {
+            return openDiscountedMaxWeightCost ;
+        }
+        else if ((weightPounds > MAX_WEIGHT_POUNDS) && (discountPercentage > 0)){
+            return openDiscountedOverageCost;
+        }
+        else if (weightPounds <= MAX_WEIGHT_POUNDS && !(discountPercentage > 0)) {
+            return maxWeightCost;
+        }
+        else if (weightPounds > MAX_WEIGHT_POUNDS && !(discountPercentage > 0)) {
+            return baseRate + overageWeightCost;
+        }
+        else{return 0;}
     }
-}
+
+    }
+

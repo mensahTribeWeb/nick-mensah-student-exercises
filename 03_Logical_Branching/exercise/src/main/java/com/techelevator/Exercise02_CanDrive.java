@@ -21,12 +21,19 @@ public class Exercise02_CanDrive {
     canDrive(false, false) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger) {
-        return false;
+        if(hasPermit && withLicensedPassenger){
+            return true;
+        }else{
+            return false;
+        }
+
+
     }
 
     /*
     In some states, the licensed passenger must be of a certain age.
-    Implement the logic to return true if the person has a permit and is with a licensed passenger who is 21 or over.
+    Implement the logic to return true if the person has a permit and is with a licensed passenger
+     who is 21 or over.
 
     Examples:
     canDrive(true, true, 22) ➔ true
@@ -34,13 +41,19 @@ public class Exercise02_CanDrive {
     canDrive(false, true, 23) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger, int passengerAge) {
-        return false;
+        if(hasPermit && withLicensedPassenger && passengerAge >=21){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     /*
     If the licensed passenger is the driver's legal guardian, they only have to be 18 instead of 21.
     Implement the logic to return true if the person has a permit and is with a licensed passenger.
-    The licensed passenger only needs to be 18 or older if they're the driver's guardian. Otherwise, the passenger must be 21 or older.
+    The licensed passenger only needs to be 18 or older if they're the driver's guardian. Otherwise,
+    the passenger must be 21 or older.
 
     Examples:
     canDrive(true, true, 22, false) ➔ true
@@ -48,6 +61,10 @@ public class Exercise02_CanDrive {
     canDrive(false, true, 23, true) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger, int passengerAge, boolean isPassengerOurGuardian) {
-        return false;
+       if(isPassengerOurGuardian && passengerAge >= 18 && hasPermit && withLicensedPassenger){
+           return true;
+       } else{
+           return false;
+       }
     }
 }

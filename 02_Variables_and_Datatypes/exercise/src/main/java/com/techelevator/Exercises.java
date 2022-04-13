@@ -532,7 +532,7 @@ public class Exercises {
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the
 	    combined hourly rate of the painters.
 	    */
-		double billRate = 1 / 2.15; 
+		double billRate = 1 / 2.15;
 		double jillRate = 1 / 1.9;
 		double combinedRate = billRate + jillRate;
 		double hoursToPaint5Rooms = 5 / combinedRate;
