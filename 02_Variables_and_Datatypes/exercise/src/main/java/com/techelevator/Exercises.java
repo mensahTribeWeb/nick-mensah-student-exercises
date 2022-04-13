@@ -532,18 +532,14 @@ public class Exercises {
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the
 	    combined hourly rate of the painters.
 	    */
-		double totalRooms = (int)5;
-		double roomInFeet = (int)14;
-		double totalWalls = totalRooms * roomInFeet;
-		double billsPaintingTimeInHours = 2.15 ;
-		double jillsPaintingTimeInHours = 1.90 ;
-
-//		double billsPaintingAverage = roomInFeet / billsPaintingTimeInHours;
-//		double jillsPaintingAverage = roomInFeet / jillsPaintingTimeInHours;
-
-		double combinedPaintingAverage = billsPaintingTimeInHours + jillsPaintingTimeInHours;
-		double totalTimeToPaintRooms = combinedPaintingAverage / totalWalls;
-		System.out.println(totalTimeToPaintRooms);
+		double billRate = 1 / 2.15; 
+		double jillRate = 1 / 1.9;
+		double combinedRate = billRate + jillRate;
+		double hoursToPaint5Rooms = 5 / combinedRate;
+		int hoursPerDay = 24;
+		double hoursToPaint623Rooms = 623 / combinedRate;
+		double daysToPaint623Rooms = hoursToPaint623Rooms / hoursPerDay;
+		System.out.println(daysToPaint623Rooms);
 
 
 
