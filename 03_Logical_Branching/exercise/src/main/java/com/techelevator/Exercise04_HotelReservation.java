@@ -23,14 +23,25 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
+
+        if(numberOfNights >= 3){
+            return  DISCOUNT_RATE  * numberOfNights;
+        }
+        else if((numberOfNights ==1) || (numberOfNights ==2)){
+           return DAILY_RATE * numberOfNights;
+        }
         return 0;
     }
 
+
     /*
-    The owners of Innovator's Inn realized weekends are more popular than weekdays. Because of this, they've raised
+    The owners of Innovator's Inn realized weekends are more popular than weekdays. Because of this,
+    they've raised
     the rate for weekend night rates to $99.99 regardless of how many nights a guest is staying.
-    If a guest is staying 3 or more nights, the weekday rate is still $89.99 per night. Otherwise, the $99.99 rate applies.
-    Implement the logic to return the total amount of the stay based on the total number of nights and the number of weekend nights.
+    If a guest is staying 3 or more nights, the weekday rate is still $89.99 per night. Otherwise,
+     the $99.99 rate applies.
+    Implement the logic to return the total amount of the stay based on the total number of nights
+    and the number of weekend nights.
     NOTE: the numOfTotalNights parameter includes weekend nights.
 
     Examples:
@@ -41,15 +52,23 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, 2) ➔ 289.97
      */
     public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights) {
-        return 0;
+        double specialGetAway = (DISCOUNT_RATE * (numOfTotalNights - numOfWeekendNights)) + (DAILY_RATE * numOfWeekendNights);
+
+        if(numOfTotalNights >= 3){
+            return specialGetAway;
+        }else{return numOfTotalNights * 99.99;}
+
+
     }
 
     /*
     Innovator's Inn continues to grow in popularity and now offers a rewards program to its customers.
-    If a guest is a member of the rewards program, they get a rate of $89.99 per night regardless of the number of nights and weekends.
+    If a guest is a member of the rewards program, they get a rate of $89.99 per night regardless
+    of the number of nights and weekends.
     Otherwise, the rates for weekday and weekend nights apply as described in the previous problem.
     Now implement the logic to return the total amount of a guest's stay based on
-    the total number of nights, the number of weekend nights, and if the guest is a member of the rewards program.
+    the total number of nights, the number of weekend nights, and if the guest is
+    a member of the rewards program.
     NOTE: the numOfTotalNights parameter includes weekend nights.
 
     Examples:
@@ -59,6 +78,16 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, 1, true) ➔ 269.97
      */
     public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights, boolean isRewardsMember) {
+        double rewardMemberCost = (DISCOUNT_RATE * numOfTotalNights);
+        double specialGetAway = (DISCOUNT_RATE * (numOfTotalNights - numOfWeekendNights)) + (DAILY_RATE * numOfWeekendNights);
+
+        if(isRewardsMember){
+           return rewardMemberCost;
+        }else if(!isRewardsMember)
+            if(numOfTotalNights >= 3){
+            return specialGetAway;
+            }else{return numOfTotalNights * 99.99;}
+
         return 0;
     }
 }
