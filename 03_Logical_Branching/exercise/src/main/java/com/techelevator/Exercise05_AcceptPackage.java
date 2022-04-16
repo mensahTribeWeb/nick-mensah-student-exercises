@@ -10,9 +10,9 @@ public class Exercise05_AcceptPackage {
      */
 
     // You can use these constants in your solutions.
-    private final int MAX_WEIGHT_POUNDS = 40;
-    private final int MAX_CUBIC_INCHES = 6912;
-    private final int MAX_DIMENSION_INCHES = 66;
+    private static final int MAX_WEIGHT_POUNDS = 40;
+    private static final int MAX_CUBIC_INCHES = 6912;
+    private static final int MAX_DIMENSION_INCHES = 66;
 
     /*
     Scamper Shipping accepts packages as long as they are 40 pounds or less.
@@ -24,9 +24,10 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
-        return false;
+        if(weightPounds <= MAX_WEIGHT_POUNDS){
+            return true;
+        }else{return false;}
     }
-
     /*
     Scamper Shipping delivers packages by hand, and some packages can be awkward to carry.
     Scamper decides that in addition to the package being no more than 40 pounds, they must also limit its size.
@@ -41,11 +42,15 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
-        return false;
+       int maxCubicInchesTest = lengthInches * widthInches * heightInches;
+       if(weightPounds <= MAX_WEIGHT_POUNDS && maxCubicInchesTest <= MAX_CUBIC_INCHES){
+           return true;
+       }else{return false;}
     }
 
     /*
-    All was well until a customer showed up with a 16-foot garden hose laid out straight in a 2x2x194 inch shipping box.
+    All was well until a customer showed up with a 16-foot garden hose laid out straight in a 2x2x194
+    inch shipping box.
     The package was less than the weight and cubic foot restrictions, but at over 16 feet long,
     it couldn't fit in the van, and they needed to tie it to the roof. So, they added another rule.
 
@@ -64,6 +69,24 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
-        return false;
+        boolean pay = isSurchargePaid;
+        int cubicInches = lengthInches * widthInches * heightInches;
+        boolean isMaxCubicInches = cubicInches <= MAX_CUBIC_INCHES;
+        boolean isDimensions = cubicInches <= MAX_DIMENSION_INCHES;
+        boolean isGreaterDimensions = cubicInches <= MAX_DIMENSION_INCHES;
+        boolean isMaxWeight = weightPounds <= MAX_WEIGHT_POUNDS;
+        boolean islength = lengthInches <= 4;
+        boolean isWidth = widthInches <= 4;
+        boolean isHeight = heightInches <= 4;
+        boolean isLessThanFour = islength && isWidth && isHeight;
+
+        if (isMaxWeight && islength && isWidth && isHeight && !pay) {
+            return true;
+        } else if (isMaxWeight && (!islength || !isWidth || !isHeight) && isMaxCubicInches && pay) {
+            return true;
+        } else if (isMaxWeight && isMaxCubicInches && !pay) {
+            return false;
+        }else {return false;}
     }
-}
+
+    }
