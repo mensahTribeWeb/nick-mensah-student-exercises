@@ -10,10 +10,12 @@ public class Exercise06_ElectricBill {
      */
 
     // You can use these constants in your solutions.
-    private final double BASE_RATE = 0.20;
-    private final double EXCESS_RATE = 0.25;
+     private final double BASE_RATE = 0.20;
+     private final double EXCESS_RATE = 0.25;
     private final double EXCESS_UNITS_LIMIT = 100.0;
     private final double DISCOUNT_FACTOR = 0.95;
+
+
 
     /*
     Implement the logic to calculate what a customer owes for the units they've used.
@@ -23,8 +25,11 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(63.7) ➔ 12.74
     calculateElectricBill(110) ➔ 22.5
      */
-    public double calculateElectricBill(double unitsUsed) {
-        return 0;
+    public double calculateElectricBill(double unitsUsed){
+    if (unitsUsed <= 100){
+        return BASE_RATE * unitsUsed;
+    }else{return ((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed-EXCESS_UNITS_LIMIT)*EXCESS_RATE))  ;}
+
     }
 
     /*
@@ -39,17 +44,30 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, true) ➔ 21.375
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
-        return 0;
+        if(unitsUsed<=100 && hasRenewableEnergy){
+            return BASE_RATE * unitsUsed * DISCOUNT_FACTOR;
+        }
+        else if(unitsUsed > 100 && hasRenewableEnergy){
+            return (((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed -EXCESS_UNITS_LIMIT)*EXCESS_RATE)) * DISCOUNT_FACTOR);
+        }
+        else if (unitsUsed <= 100 && !hasRenewableEnergy){
+            return BASE_RATE * unitsUsed;
+        }else if (unitsUsed > 100 && !hasRenewableEnergy){
+            return ((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed-EXCESS_UNITS_LIMIT)*EXCESS_RATE))  ;}
+        else{return 0;}
     }
 
     /*
     On further research, customers with renewable energy can put electricity back into the system.
-    Tech Electric wants to give credit to these customers, subtracting the units returned from the units they've used.
+    Tech Electric wants to give credit to these customers, subtracting the units returned from
+    the units they've used.
     These customers should still receive the 5% discount.
-    Implement the logic to calculate what a customer owes for the units they've used, and the units returned.
+    Implement the logic to calculate what a customer owes for the units they've used,
+    and the units returned.
 
     Note: If a customer returns more than they used, they'll receive money back.
-    The refund is a rate of $0.20 per unit regardless of the amount. Don't apply the 5% discount if the customer receives a refund.
+    The refund is a rate of $0.20 per unit regardless of the amount.
+    Don't apply the 5% discount if the customer receives a refund.
 
     Examples:
     calculateElectricBill(50, 0) ➔ 10.0
@@ -60,6 +78,16 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        return 0;
+        if(unitsUsed < unitsReturned){
+            return unitsReturned - (BASE_RATE *  DISCOUNT_FACTOR)  ;
+        }
+        else if(unitsUsed > unitsReturned){
+            return (((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed -EXCESS_UNITS_LIMIT)*EXCESS_RATE)) * DISCOUNT_FACTOR) - unitsReturned;
+        }
+//        else if (unitsUsed <= 100 && !hasRenewableEnergy){
+//            return BASE_RATE * unitsUsed;
+//        }else if (unitsUsed > 100 && !hasRenewableEnergy){
+//            return ((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed-EXCESS_UNITS_LIMIT)*EXCESS_RATE))  ;}
+        else{return 0;}
     }
 }
