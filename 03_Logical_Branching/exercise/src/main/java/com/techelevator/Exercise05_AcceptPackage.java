@@ -24,10 +24,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
-        if(weightPounds <= MAX_WEIGHT_POUNDS){
+        if (weightPounds <= MAX_WEIGHT_POUNDS) {
             return true;
-        }else{return false;}
+        } else {
+            return false;
+        }
     }
+
     /*
     Scamper Shipping delivers packages by hand, and some packages can be awkward to carry.
     Scamper decides that in addition to the package being no more than 40 pounds, they must also limit its size.
@@ -42,10 +45,12 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
-       int maxCubicInchesTest = lengthInches * widthInches * heightInches;
-       if(weightPounds <= MAX_WEIGHT_POUNDS && maxCubicInchesTest <= MAX_CUBIC_INCHES){
-           return true;
-       }else{return false;}
+        int maxCubicInchesTest = lengthInches * widthInches * heightInches;
+        if (weightPounds <= MAX_WEIGHT_POUNDS && maxCubicInchesTest <= MAX_CUBIC_INCHES) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /*
@@ -69,24 +74,24 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
-        boolean pay = isSurchargePaid;
-        int cubicInches = lengthInches * widthInches * heightInches;
-        boolean isMaxCubicInches = cubicInches <= MAX_CUBIC_INCHES;
-        boolean isDimensions = cubicInches <= MAX_DIMENSION_INCHES;
-        boolean isGreaterDimensions = cubicInches <= MAX_DIMENSION_INCHES;
-        boolean isMaxWeight = weightPounds <= MAX_WEIGHT_POUNDS;
-        boolean islength = lengthInches <= 4;
-        boolean isWidth = widthInches <= 4;
-        boolean isHeight = heightInches <= 4;
-        boolean isLessThanFour = islength && isWidth && isHeight;
+        boolean isCubicInches = (lengthInches * widthInches * heightInches) <=MAX_CUBIC_INCHES;
+        boolean isWeight = weightPounds <= MAX_WEIGHT_POUNDS;
+        boolean isDimensions = (lengthInches * widthInches * heightInches) <= MAX_DIMENSION_INCHES;
 
-        if (isMaxWeight && islength && isWidth && isHeight && !pay) {
+        if(isWeight && isCubicInches){
             return true;
-        } else if (isMaxWeight && (!islength || !isWidth || !isHeight) && isMaxCubicInches && pay) {
+        }else if(isWeight && isCubicInches && isDimensions && isSurchargePaid){
             return true;
-        } else if (isMaxWeight && isMaxCubicInches && !pay) {
+        }else if(isWeight && isCubicInches && isDimensions && !isSurchargePaid){
             return false;
-        }else {return false;}
-    }
+        }else if(isWeight  && !isCubicInches && !isDimensions && !isSurchargePaid){
+            return false;
+        }else if(!isWeight && isDimensions && isSurchargePaid){
+            return false;
+        }
+        else{return false;}
+
+
 
     }
+}

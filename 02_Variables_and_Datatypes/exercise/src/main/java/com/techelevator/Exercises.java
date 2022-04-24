@@ -405,7 +405,7 @@ public class Exercises {
         cookies will not be placed in a jar?
         */
 		int totalGingerbreadCookiesMade = 47;
-		int cookiesPerJar = (int)6;
+		int cookiesPerJar = 6;
 		int remainingCookies = totalGingerbreadCookiesMade % cookiesPerJar;
 		System.out.println(remainingCookies);
 
