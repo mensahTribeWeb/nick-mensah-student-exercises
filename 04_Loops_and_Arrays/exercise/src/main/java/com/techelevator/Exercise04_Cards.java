@@ -25,6 +25,11 @@ public class Exercise04_Cards {
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
     public String getFirstCard(String[] hand) {
+
+         for(int i = 0; i< hand.length; i++){
+             return hand[0];
+         }
+
         return "";
     }
 
@@ -42,7 +47,12 @@ public class Exercise04_Cards {
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
      */
     public String[] discardFirstCard(String[] hand) {
-        return new String[] {};
+        String[] swapHand = new String[hand.length - 1];
+
+        for(int i = 0; i < hand.length - 1; i++){
+            swapHand[i] = hand[i + 1];
+        }
+        return swapHand;
     }
 
     /*
