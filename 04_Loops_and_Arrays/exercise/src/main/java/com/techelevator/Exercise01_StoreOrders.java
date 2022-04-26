@@ -84,26 +84,12 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([10, 11, 20]) → 19
     getCheesePizzaRevenue([11, 21]) → 0
      */
-    int sCount = 0;
-    int mCount = 0;
-    int lCount = 0;
+
 
     public int[] getCheesePizzaRevenue(int[] orders) {
-    for(int i = 0; i <0; i++){
-        if(orders[i] ==SMALL_CHEESE){
-            sCount++;
-            if(orders[i] ==MEDIUM_CHEESE){
-              mCount++;
-              if(orders[i] == LARGE_CHEESE){
-                  lCount++;
-              }
-            }
-        }
-        int total = (SMALL_CHEESE*sCount)+(MEDIUM_CHEESE*mCount)+(LARGE_CHEESE*lCount);
 
-    }
+
         return orders;
-
     }
 
 
