@@ -78,16 +78,6 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        if(unitsUsed < unitsReturned){
-            return unitsReturned - (BASE_RATE *  DISCOUNT_FACTOR)  ;
-        }
-        else if(unitsUsed > unitsReturned){
-            return (((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed -EXCESS_UNITS_LIMIT)*EXCESS_RATE)) * DISCOUNT_FACTOR) - unitsReturned;
-        }
-//        else if (unitsUsed <= 100 && !hasRenewableEnergy){
-//            return BASE_RATE * unitsUsed;
-//        }else if (unitsUsed > 100 && !hasRenewableEnergy){
-//            return ((BASE_RATE * EXCESS_UNITS_LIMIT) + ((unitsUsed-EXCESS_UNITS_LIMIT)*EXCESS_RATE))  ;}
-        else{return 0;}
+       return unitsUsed >= unitsReturned ? calculateElectricBill(unitsUsed-unitsReturned, unitsReturned > 0) : (unitsUsed-unitsReturned)*BASE_RATE;
     }
 }

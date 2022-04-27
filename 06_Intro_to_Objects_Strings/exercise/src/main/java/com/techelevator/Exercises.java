@@ -1,5 +1,4 @@
 package com.techelevator;
-
 public class Exercises {
 
 	/*
@@ -9,7 +8,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		String greet = "Hello";
+		return greet + name;
 	}
 
 	/*
@@ -20,7 +20,8 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 	public String makeAbba(String a, String b) {
-		return null;
+
+		return a + b;
 	}
 
 	/*
@@ -32,7 +33,8 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return null;
+
+		return "<" + tag + ">" + word + "</" + tag + ">" ;
 	}
 
 	/*
@@ -44,6 +46,7 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
+
 		return null;
 	}
 

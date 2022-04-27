@@ -54,7 +54,7 @@ public class Exercise01_ShippingTotal {
         double overageWeightCost = (((weightPounds - MAX_WEIGHT_POUNDS)) * OVER_40_LB_RATE);
         double baseRate = MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE; //20
         double discountedMaxWeightCost = maxWeightCost - (maxWeightCost *.1);
-        double discountedOverageCost =(baseRate + overageWeightCost) - ((baseRate + overageWeightCost) * .1);;
+        double discountedOverageCost =(baseRate + overageWeightCost) - ((baseRate + overageWeightCost) * .1);
 
         if (weightPounds <= MAX_WEIGHT_POUNDS && hasDiscount) {
             return discountedMaxWeightCost;

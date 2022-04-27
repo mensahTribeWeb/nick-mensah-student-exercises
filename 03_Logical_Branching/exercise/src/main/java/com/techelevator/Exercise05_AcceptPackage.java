@@ -45,7 +45,9 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
+
         int maxCubicInchesTest = lengthInches * widthInches * heightInches;
+
         if (weightPounds <= MAX_WEIGHT_POUNDS && maxCubicInchesTest <= MAX_CUBIC_INCHES) {
             return true;
         } else {
@@ -74,27 +76,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
-
-        boolean isCubicInches = (lengthInches * widthInches * heightInches) <= MAX_CUBIC_INCHES;
-        boolean isWeight = weightPounds <= MAX_WEIGHT_POUNDS;
-        boolean isDimensions = ((lengthInches < MAX_DIMENSION_INCHES) && (widthInches < MAX_DIMENSION_INCHES) && (heightInches < MAX_DIMENSION_INCHES));
-
-        if (isWeight) {
-            if (isCubicInches) {
-                if (isSurchargePaid) {
-                    return true;
-                } else if (isDimensions) {
-                    return true;
-                } else {
-                    return false;
-                }
-
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+        boolean isAccepted = acceptPackage(weightPounds, lengthInches, widthInches, heightInches);
+        if (isAccepted && lengthInches <= MAX_DIMENSION_INCHES && widthInches <= MAX_DIMENSION_INCHES && heightInches <= MAX_DIMENSION_INCHES)
+            return true;
+        else {
+            if (isAccepted && isSurchargePaid)
+                return true;
         }
+        return false;
     }
-
 }
