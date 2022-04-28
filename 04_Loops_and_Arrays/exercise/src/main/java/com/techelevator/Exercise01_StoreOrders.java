@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Exercise01_StoreOrders {
+public class Exercise01_StoreOrders<cheesePizzaSales> {
 
 
     /*
@@ -85,22 +85,22 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([11, 21]) → 0
      */
 
-
+    double cheesePizzaSales = 0.0;
     public int[] getCheesePizzaRevenue(int[] orders) {
-       double cheesePizzaSales = 0.0;
+
+
        for(int i = 0; i < orders.length; i++){
            if(orders[i] == SMALL_CHEESE)
-           cheesePizzaSales += 8;
+                cheesePizzaSales += 8;
            else if(orders[i] == MEDIUM_CHEESE)
                cheesePizzaSales += 11;
            else if(orders[i] == LARGE_CHEESE)
                cheesePizzaSales += 14;
-           else
-               continue;
+          
        }
-
-        return orders;
+       return orders;
     }
+
 
 
     public void main(String[] args){
