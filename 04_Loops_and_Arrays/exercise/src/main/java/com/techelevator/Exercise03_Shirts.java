@@ -43,8 +43,28 @@ public class Exercise03_Shirts {
      */
     public char[] buildBulkOrder(int numberOfShirts) {
 
-        return new char[0];
+        char[] buildBulkOrder = new char[numberOfShirts];
+        buildBulkOrder[0]= 'S';
+
+
+        for(int i = 0; i< buildBulkOrder.length-1; i++){
+            if(buildBulkOrder[i] == 'S') {
+                buildBulkOrder[i+1] = MEDIUM_TSHIRT;
+                
+                if(buildBulkOrder[i] == 'M') {;
+                    buildBulkOrder[i+1] = LARGE_TSHIRT;
+                    
+                        if(buildBulkOrder[i] == 'L') {
+                            buildBulkOrder[i+1] = SMALL_TSHIRT;
+                            
+                        }
+                    }
+            }
+        }
+        return buildBulkOrder;
     }
+
+
 
     /*
     The warehouse is out of small shirts and will only request more when the

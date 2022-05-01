@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Exercise01_StoreOrders<cheesePizzaSales> {
+public class Exercise01_StoreOrders {
 
 
     /*
@@ -64,7 +64,6 @@ public class Exercise01_StoreOrders<cheesePizzaSales> {
        for(int i = 0; i < orders.length; i++){
            if( CALZONE == orders[i]) {
                count++;
-               continue;
             }
        }
         return count;
@@ -79,32 +78,33 @@ public class Exercise01_StoreOrders<cheesePizzaSales> {
     Implement the logic to return the total revenue of all cheese pizzas when given
     an array representing each item that her customers ordered that day.
 
-    Examples:
+    Examples:+
     getCheesePizzaRevenue([10]) → 8
     getCheesePizzaRevenue([10, 11, 20]) → 19
     getCheesePizzaRevenue([11, 21]) → 0
      */
 
-    double cheesePizzaSales = 0.0;
+
     public int[] getCheesePizzaRevenue(int[] orders) {
 
+        int cheesePizzaSales = 0;
+        int total;
 
-       for(int i = 0; i < orders.length; i++){
-           if(orders[i] == SMALL_CHEESE)
-                cheesePizzaSales += 8;
-           else if(orders[i] == MEDIUM_CHEESE)
-               cheesePizzaSales += 11;
-           else if(orders[i] == LARGE_CHEESE)
-               cheesePizzaSales += 14;
-          
-       }
-       return orders;
+
+        for (int i = 0; i < orders.length; i++)
+            if (orders[i]==SMALL_CHEESE){
+                cheesePizzaSales += 8;}
+
+            else if (orders[i] == MEDIUM_CHEESE){
+                cheesePizzaSales += 11;}
+
+            else if (orders[i] == LARGE_CHEESE){
+                cheesePizzaSales += 14;}
+         total = cheesePizzaSales;
+        return orders;
+
     }
 
 
-
-    public void main(String[] args){
-            createOrder();
-    }
 }
 
