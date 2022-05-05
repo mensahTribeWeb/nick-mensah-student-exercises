@@ -16,29 +16,26 @@ static Scanner scan = new Scanner(System.in);
 		System.out.println("Please Enter a unit to convert: ");
 		int value = scan.nextInt();
 		scan.nextLine();
+
 		System.out.println("Is the measurement in (m)eter, or (f)eet? f");
-		String unit = scan.nextLine().toLowerCase();
+		char unit = scan.next().toLowerCase().charAt(0);
 
-		if(unit == "f"){
-			System.out.println(value +"f is" + feetToMeters(value)+"m");
-			return feetToMeters(value);
-		}
-		else if (unit == "m"){
-			System.out.println(value +"m is" + feetToMeters(value)+"f");
-			return metersToFeet(value);
-		}
 
-		return value;
+			if(unit == 'f' && value != 0){
+				System.out.println(value +"m is " + (value * 3.2808399) +" f");
+				return;
+
+			}
+			else if (unit == 'm'  && value != 0){
+				System.out.println(value + "f is " + (value * 0.3048) + " m");
+				return;
+			}
+			else{
+				System.out.println("Please enter a valid number");
+			}
+
+
 	}
 
-	private static int feetToMeters(int value){
-	//	m = f * 0.3048
-		return  value * (int)0.3048;
-	}
-
-	private static int metersToFeet(int value){
-	// f = m * 3.2808399
-		return value * (int)3.2808399;
-	}
 
 }

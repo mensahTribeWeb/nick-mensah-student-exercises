@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Exercise01_StoreOrders {
 
 
@@ -83,13 +85,10 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([10, 11, 20]) → 19
     getCheesePizzaRevenue([11, 21]) → 0
      */
-
-
-    public int[] getCheesePizzaRevenue(int[] orders) {
+    public int getCheesePizzaRevenue(int @NotNull [] orders) {
 
         int cheesePizzaSales = 0;
-        int total;
-
+        int total = 0;
 
         for (int i = 0; i < orders.length; i++)
             if (orders[i]==SMALL_CHEESE){
@@ -100,8 +99,9 @@ public class Exercise01_StoreOrders {
 
             else if (orders[i] == LARGE_CHEESE){
                 cheesePizzaSales += 14;}
-         total = cheesePizzaSales;
-        return orders;
+        total = cheesePizzaSales;
+
+        return total;
 
     }
 

@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Exercise03_Shirts {
 
     private final static char SMALL_TSHIRT = 'S';
@@ -47,7 +49,7 @@ public class Exercise03_Shirts {
         buildBulkOrder[0]= 'S';
 
 
-        for(int i = 0; i< buildBulkOrder.length-1; i++){
+        for(int i = 0; i< buildBulkOrder.length; i++){
             if(buildBulkOrder[i] == 'S') {
                 buildBulkOrder[i+1] = MEDIUM_TSHIRT;
                 
@@ -79,17 +81,13 @@ public class Exercise03_Shirts {
     placeRequest(['M', 'M', 'L']) → false
     placeRequest([]) → false
      */
-    public boolean placeRequest(char[] order) {
-
+    public boolean placeRequest(char @NotNull [] order) {
 
         for(int i =0; i < order.length; i++){
             if(order[i] == 'S'){
                 return true;
             }
-
         }
-
-
-        return false;
+            return false;
+        }
     }
-}
