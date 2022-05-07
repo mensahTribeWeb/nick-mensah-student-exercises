@@ -248,7 +248,7 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
-		return str.substring(0,n) + str.substring((n+(n/n+2)),str.length());
+		return str.substring(0,n) + str.substring((n+(n/2)),str.length());
 	}
 
 	/*
@@ -297,17 +297,21 @@ public class Exercises {
 		if(str.length() == 3){
 			return str.equals("bad");
 		}
-		return str.substring(0,3).equals("bad"|| str.substring(1,4));
-//		return false;
+//		return str.substring(0,3).equals("bad"|| str.substring(1,4));
+		return false;
 	}
 
 	/*
-	 Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+	 Given a string and a non-negative int n, return a larger string that is
+	  n copies of the original string.
 	 stringTimes("Hi", 2) → "HiHi"
 	 stringTimes("Hi", 3) → "HiHiHi"
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
+
+
+
 		return null;
 	}
 
