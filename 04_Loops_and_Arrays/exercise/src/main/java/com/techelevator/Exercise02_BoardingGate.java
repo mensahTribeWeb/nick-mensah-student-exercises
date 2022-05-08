@@ -75,39 +75,13 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([false, true, true, false, true, true]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-//        int rowCapacity = 0;
-//        int filled = 3;
-//        boolean seat = false;
-//        int total = 0;
-
-//        for(int i = 0;i < seatingChart.length; ) { //check columns
-//            for (int j =0; j < seatingChart.length; j++) { //check rows
-//
-//                if (seat ==false ) {
-//                    rowCapacity++;
-//                    System.out.println(seat);
-//                    System.out.println(rowCapacity);
-//                    if (count == filled) {
-//                     rowCapacity++;
-//                    }
-//                    total = rowCapacity/3;
-//                }
-//            }
-//            return total;
-//        }
-//        return rowCapacity;
-
-        //}
-
-//        int count = 0;
-//        for (int i = 0; i < seatingChart.length - 1; i += 3) {
-//            if (seatingChart[i] && seatingChart[i + 1] && seatingChart[i + 2])
-//                count++;
-//        }
-//        return count;
-
-
-        return 0;
+              int count = 0;
+        for (int i = 0; i < seatingChart.length - 2; i += 3) {
+            if (seatingChart[i]==false && seatingChart[i + 1]==false && seatingChart[i + 2]==false)
+                ++count;
+        }
+        return count;
     }
-}
+    }
+
 
