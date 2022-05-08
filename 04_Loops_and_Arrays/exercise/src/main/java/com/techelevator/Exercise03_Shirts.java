@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class Exercise03_Shirts {
 
@@ -84,7 +84,7 @@ public class Exercise03_Shirts {
     placeRequest(['M', 'M', 'L']) → false
     placeRequest([]) → false
      */
-    public boolean placeRequest(char @NotNull [] order) {
+    public boolean placeRequest(char  [] order) {
 
         for(int i =0; i < order.length; i++){
             if(order[i] == 'S'){

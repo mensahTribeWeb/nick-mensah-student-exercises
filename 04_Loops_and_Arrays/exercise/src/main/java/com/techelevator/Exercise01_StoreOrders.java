@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class Exercise01_StoreOrders {
 
@@ -85,7 +85,7 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([10, 11, 20]) → 19
     getCheesePizzaRevenue([11, 21]) → 0
      */
-    public int getCheesePizzaRevenue(int @NotNull [] orders) {
+    public int getCheesePizzaRevenue(int  [] orders) {
 
         int cheesePizzaSales = 0;
         int total = 0;
