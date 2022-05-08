@@ -30,10 +30,11 @@ public class Exercise02_BoardingGate {
         boolean[] availableSeats = new boolean[numberOfSeats];
 
         for (int i = 0; i < numberOfSeats; i++) {
-            availableSeats[i]=true;
+            availableSeats[i] = true;
         }
         return availableSeats;
     }
+
     /*
     Once passengers begin boarding the plane, gate attendants need a way to determine how many available
     seats there are on the plane.
@@ -52,9 +53,8 @@ public class Exercise02_BoardingGate {
         int availableSeats = 0;
         for (int i = 0; i < seatingChart.length; i++) {
             if (seatingChart[i] != true) {
-              continue;
-            }
-            else {
+                continue;
+            } else {
                 availableSeats++;
             }
         }
@@ -75,30 +75,39 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([false, true, true, false, true, true]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
-        int rowCapacity = 0;
-        int filled = 3;
-        boolean seat = false;
-        int count = 0;
-        int total = 0;
+//        int rowCapacity = 0;
+//        int filled = 3;
+//        boolean seat = false;
+//        int total = 0;
+
+//        for(int i = 0;i < seatingChart.length; ) { //check columns
+//            for (int j =0; j < seatingChart.length; j++) { //check rows
+//
+//                if (seat ==false ) {
+//                    rowCapacity++;
+//                    System.out.println(seat);
+//                    System.out.println(rowCapacity);
+//                    if (count == filled) {
+//                     rowCapacity++;
+//                    }
+//                    total = rowCapacity/3;
+//                }
+//            }
+//            return total;
+//        }
+//        return rowCapacity;
+
+        //}
+
+//        int count = 0;
+//        for (int i = 0; i < seatingChart.length - 1; i += 3) {
+//            if (seatingChart[i] && seatingChart[i + 1] && seatingChart[i + 2])
+//                count++;
+//        }
+//        return count;
 
 
-        for(int i = 0;i < seatingChart.length; ) { //check columns
-            for (int j =0; j < seatingChart.length; j++) { //check rows
-
-                if (seat ==false ) {
-                    rowCapacity++;
-                    System.out.println(seat);
-                    System.out.println(rowCapacity);
-                    if (count == filled) {
-                     rowCapacity++;
-                    }
-                    total = rowCapacity/3;
-                }
-            }
-            return total;
-        }
-        return rowCapacity;
-
+        return 0;
     }
-
 }
+
