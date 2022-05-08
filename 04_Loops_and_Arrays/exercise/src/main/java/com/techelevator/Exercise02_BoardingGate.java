@@ -1,6 +1,6 @@
 package com.techelevator;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class Exercise02_BoardingGate {
     /*
@@ -51,9 +51,8 @@ public class Exercise02_BoardingGate {
     public int getAvailableSeatCount(boolean[] seatingChart) {
 
         int availableSeats = 0;
-        for (int i = 0; i < seatingChart.length; i++) {
-            if (seatingChart[i] != true) {
-                continue;
+        for (boolean b : seatingChart) {
+            if (!b) {
             } else {
                 availableSeats++;
             }
