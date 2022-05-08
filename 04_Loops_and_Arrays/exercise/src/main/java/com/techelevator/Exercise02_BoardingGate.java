@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Exercise02_BoardingGate {
     /*
     Local Jetways is a regional airline operating at local airports.
@@ -75,23 +77,28 @@ public class Exercise02_BoardingGate {
     public int getNumberOfFullRows(boolean[] seatingChart) {
         int rowCapacity = 0;
         int filled = 3;
-        boolean seat = true;
+        boolean seat = false;
         int count = 0;
+        int total = 0;
 
-        for(int i = 0; i < seatingChart.length; i++) { //check columns
-            int total = 0;
-            for (int j = 0; j < 4; i++) { //check rows
-                if (seat == true) {
-                    count++;
+
+        for(int i = 0;i < seatingChart.length; ) { //check columns
+            for (int j =0; j < seatingChart.length; j++) { //check rows
+
+                if (seat ==false ) {
+                    rowCapacity++;
+                    System.out.println(seat);
+                    System.out.println(rowCapacity);
                     if (count == filled) {
-                        return rowCapacity++;
+                     rowCapacity++;
                     }
-                    total = rowCapacity;
+                    total = rowCapacity/3;
                 }
             }
             return total;
         }
-        return 0;
+        return rowCapacity;
+
     }
 
 }
