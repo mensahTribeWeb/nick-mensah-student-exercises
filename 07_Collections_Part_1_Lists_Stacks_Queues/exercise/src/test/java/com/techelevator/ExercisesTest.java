@@ -54,7 +54,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void exercise03_no4LetterWords() {
+	public void exercise03_no4LetterWords(){
 		String failureMessage = compareArrayLists(new ArrayList<String>(Arrays.asList("Train", "Car")),
 				exercises.no4LetterWords(new String[] { "Train", "Boat", "Car" }));
 		if (failureMessage != null) {

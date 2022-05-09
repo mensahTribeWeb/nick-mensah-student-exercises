@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Exercises {
 
@@ -34,7 +35,44 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+
+		Map<String, String> animalGroup = new TreeMap<>();
+
+		animalGroup.put("Rhino", "Crash");
+		animalGroup.put("Giraffe", "Tower");
+		animalGroup.put("Elephant", "Herd");
+		animalGroup.put("Lion", "Pride");
+		animalGroup.put("Crow", "Murder");
+		animalGroup.put("Pigeon", "Kit");
+		animalGroup.put("Flamingo", "Pat");
+		animalGroup.put("Deer", "Herd");
+		animalGroup.put("Dog", "Pack");
+		animalGroup.put("Crocodile ", "Float");
+
+
+		String groupName="unknown";
+		if(animalName != null && animalName.toLowerCase().equals("rhino"))
+			groupName = "Crash";
+		else if(animalName != null && animalName.toLowerCase().equals("giraffe"))
+			groupName = "Tower";
+		else if(animalName != null && animalName.toLowerCase().equals("elephant"))
+			groupName = "Herd";
+		else if(animalName != null && animalName.toLowerCase().equals("lion"))
+			groupName = "Pride";
+		else if(animalName != null && animalName.toLowerCase().equals("crow"))
+			groupName = "Murder";
+		else if(animalName != null && animalName.toLowerCase().equals("pegion"))
+			groupName = "Kit";
+		else if(animalName != null && animalName.toLowerCase().equals("flamingo"))
+			groupName = "Pat";
+		else if(animalName != null && animalName.toLowerCase().equals("deer"))
+			groupName = "Herd";
+		else if(animalName != null && animalName.toLowerCase().equals("dog"))
+			groupName = "Pack";
+		else if(animalName != null && animalName.toLowerCase().equals("crocodile"))
+			groupName = "Float";
+
+		return groupName;
 	}
 
 	/*
