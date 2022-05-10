@@ -98,6 +98,14 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
+		HashMap<String, Double> isItOnSale = new HashMap<>();
+
+		isItOnSale.put("KITCHEN4001", 0.20);
+		isItOnSale.put("GARAGE1070", 0.15);
+		isItOnSale.put("LIVINGROOM", 0.10);
+		isItOnSale.put("KITCHEN6073", 0.20);
+		isItOnSale.put("BEDROOM3434", 0.60);
+		isItOnSale.put("BATH0073", 0.15);
 		return -1.0;
 	}
 

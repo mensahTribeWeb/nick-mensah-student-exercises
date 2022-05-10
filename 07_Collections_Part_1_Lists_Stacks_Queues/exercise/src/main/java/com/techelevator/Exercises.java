@@ -148,15 +148,20 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		ArrayList<Integer> interLeaveValues = new ArrayList<>();
+		ArrayList<Integer> interLeaveValues = new ArrayList<>(listOne.size() + listTwo.size());
 
+		int max = listOne.size();
+
+		if (listTwo.size() > listOne.size())
+			max = listTwo.size();
 		int i;
-		for (i = 0; i < (Math.max(listOne.size(), listTwo.size()))-1; i++)
-			if (i < listOne.size())
+		for (i = 0; i < max; i++) {
+			if (listOne.size() > i)
 				interLeaveValues.add(listOne.get(i));
 
-			if (i < listTwo.size()) ;
+			if (listTwo.size() > i)
 				interLeaveValues.add(listTwo.get(i));
+		}
 
 		return interLeaveValues;
 	}
