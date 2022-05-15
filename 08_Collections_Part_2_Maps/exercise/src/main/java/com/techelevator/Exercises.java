@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -98,6 +99,8 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
+
+
 		HashMap<String, Double> isItOnSale = new HashMap<>();
 
 		isItOnSale.put("KITCHEN4001", 0.20);
@@ -106,11 +109,17 @@ public class Exercises {
 		isItOnSale.put("KITCHEN6073", 0.20);
 		isItOnSale.put("BEDROOM3434", 0.60);
 		isItOnSale.put("BATH0073", 0.15);
-		return -1.0;
+		if(itemNumber!=null)
+
+        if( isItOnSale.containsKey(itemNumber.toUpperCase())){
+            return isItOnSale.get(itemNumber.toUpperCase());
+		}
+	return 0.0;
 	}
 
 	/*
-	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of it to "Paul",
+	 * Modify and return the given Map as follows: if "Peter" has more than 0 money, transfer half of
+	 *  it to "Paul",
 	 * but only if Paul has less than $10s.
 	 *
 	 * Note, monetary amounts are specified in cents: penny=1, nickel=5, ... $1=100, ... $10=1000, ...
@@ -120,24 +129,47 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+		int peter = peterPaul.get("Peter");
+		int paul = peterPaul.get("Paul");
+
+		if (peter > 0 && paul < 1000) {
+
+			paul += (peter / 2);
+			peter = (peter / 2) + (peter % 2);
+		}
+			peterPaul.put("Paul", paul);
+			peterPaul.put("Peter", peter);
+		return peterPaul;
 	}
 
 	/*
-	 * Modify and return the given Map as follows: if "Peter" has $50 or more, AND "Paul" has $100 or more,
-	 * then create a new "PeterPaulPartnership" worth a combined contribution of a quarter of each partner's
+	 * Modify and return the given Map as follows: if "Peter" has $50 or more, AND "Paul" has $100
+	 * or more,
+	 * then create a new "PeterPaulPartnership" worth a
+	 * combined contribution of a quarter of each partner's
 	 * current worth.
 	 *
-	 * peterPaulPartnership({"Peter": 50000, "Paul": 100000}) → {"Peter": 37500, "Paul": 75000, "PeterPaulPartnership": 37500}
-	 * peterPaulPartnership({"Peter": 3333, "Paul": 1234567890}) → {"Peter": 3333, "Paul": 1234567890}
+	 * peterPaulPartnership({"Peter": 50000, "Paul": 100000}) →
+	 * {"Peter": 37500, "Paul": 75000, "PeterPaulPartnership": 37500}
+	 * peterPaulPartnership({"Peter": 3333, "Paul": 1234567890}) →
+	 * {"Peter": 3333, "Paul": 1234567890}
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+	int Peter = peterPaul.get("Peter");
+	int Paul = peterPaul.get("Paul");
+
+	if (Peter >= 5000 && Paul >= 10000){
+		peterPaul.put("PeterPaulPartnership", ((Peter/4)+(Paul/4)));
+		peterPaul.put("Peter", (Peter - (Peter/4)));
+		peterPaul.put("Paul", (Paul - (Paul/4)));
+	}
+		return peterPaul;
 	}
 
 	/*
-	 * Given an array of non-empty Strings, return a Map<String, String> where for every different String in the array,
+	 * Given an array of non-empty Strings, return a Map<String, String> where for
+	 * every different String in the array,
 	 * there is a key of its first character with the value of its last character.
 	 *
 	 * beginningAndEnding(["code", "bug"]) → {"b": "g", "c": "e"}
@@ -145,7 +177,14 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> map = new HashMap<>();
+
+		for(int i = 0; i < words.length; i++ ){
+			String word = words[i];
+
+			map.put(word.substring(0,1), word.substring(word.length()-1, word.length()));
+		}
+		return map;
 	}
 
 	/*
@@ -160,8 +199,20 @@ public class Exercises {
 	 * wordCount(["c", "b", "a"]) → {"b": 1, "c": 1, "a": 1}
 	 *
 	 */
+	// we did this assignment in group lecture
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> wordCount = new HashMap<>();
+		for (String word:words) {
+			if(wordCount.containsKey(word)){
+				int value = wordCount.get(word);
+				wordCount.put(word, value + 1);
+			}
+			else{
+				wordCount.put(word, 1);
+			}
+		}
+
+		return wordCount;
 	}
 
 	/*
@@ -176,7 +227,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> intCount = new HashMap<>();
+		for(int i : ints){
+			if(! intCount.containsKey(i)){
+				intCount.put(i, 1);
+			}
+			else{int count = intCount.get(i);
+			 intCount.put(i, count + 1);
+			}
+		}
+		return intCount;
 	}
 
 	/*
@@ -189,7 +249,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> multiWord = new HashMap<>();
+
+		for(String word:words){
+			if(multiWord.containsKey(word)){
+				multiWord.put(word,true);
+			}else{multiWord.put(word,false);}
+		}
+
+
+		return multiWord;
 	}
 
 	/*
@@ -204,7 +273,23 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+
+		Map<String, Integer> consolidateInv = new HashMap<>();
+
+		for(String item : mainWarehouse.keySet()) {
+			if (remoteWarehouse.containsKey(item)) {
+				consolidateInv.put(item, (mainWarehouse.get(item) + remoteWarehouse.get(item)));
+			} else {
+				consolidateInv.put(item, mainWarehouse.get(item));
+			}
+		}
+			for (String item : remoteWarehouse.keySet()) {
+				if (!(mainWarehouse.containsKey(item))) {
+					consolidateInv.put(item, remoteWarehouse.get(item));
+
+				}
+		}
+		return consolidateInv;
 	}
 
 	/*
@@ -223,7 +308,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
-	}
+		Map<String, Integer> last2Revisited = new HashMap<>();
 
+
+		for(String k:words) {
+			int count = 0;
+			String lastTwoValues = k.substring(k.length() - 2, k.length());
+			for (int i = 0; i < k.length() - 2; i++) {
+				if (k.substring(i, i + 2).equals(lastTwoValues)) {
+					count++;
+					last2Revisited.put(k, count);
+				}
+			}
+			last2Revisited.put(k, count);
+		}
+		return last2Revisited;
+	}
 }
+
+
