@@ -9,7 +9,7 @@ public class HomeworkAssignment {
     //Constructor
    public HomeworkAssignment(int possibleMarks, String submitterName){
          this.possibleMarks = possibleMarks;
-    
+        this.submitterName = submitterName;
     }
 
     //Method
