@@ -25,7 +25,7 @@ public boolean pickFruit(int numberOfPiecesToRemove) {
         return piecesOfFruitLeft;
     }
 
-    public String getTypesOfFruit() {
+    public String getTypeOfFruit() {
         return typesOfFruit;
     }
 }

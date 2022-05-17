@@ -16,7 +16,8 @@ public Elevator(int numberOfLevelsAvailable){
     public void openDoor(){
     doorOpen = true;
     }
-    public void closeDOOR(){
+    public void closeDoor(){
+
     doorOpen = false;
     }
     public void goUp(int desiredFloor){
