@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class CreditCard implements Accountable{
+public class CreditCardAccount implements Accountable{
     //Properties
     private String accountHolder;
     private String accountNumber;
@@ -8,24 +8,25 @@ public class CreditCard implements Accountable{
 
     //Constructors
 
-    public CreditCard(String accountHolder, String accountNumber) {
+    public CreditCardAccount(String accountHolder, String accountNumber) {
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
     }
 
     //Methods
     public int pay(int amountToPay){
-        debt-=amountToPay;
-        return debt;
+        debt = debt-=amountToPay;
+        return -debt;
     }
 
     public int charge(int amountToCharge){
         debt+=amountToCharge;
-        return debt;
+        return -debt;
     }
+    //Override
     @Override
-    public int transferTo(int transferAmount) {
-        return 0;
+   public int getBalance(){
+        return -debt;
     }
     //Getters
 

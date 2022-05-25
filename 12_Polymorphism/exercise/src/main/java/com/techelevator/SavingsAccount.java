@@ -9,7 +9,7 @@ public class SavingsAccount extends BankAccount {
     public SavingsAccount(String accountHolder, String accountNumber) {
         super(accountHolder, accountNumber);
     }
-
+    //Methods and Override Methods
     @Override
     public int withdraw(int amountToWithdraw) {
         // only perform transaction of positive $ and room for fee
@@ -22,9 +22,6 @@ public class SavingsAccount extends BankAccount {
         }
         return getBalance();
     }
-    //Methods
-    @Override
-    public int transferTo(int transferAmount) {
-        return 0;
-    }
+
+
 }

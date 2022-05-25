@@ -8,7 +8,7 @@ public class BankCustomer {
     private String name;
     private String address;
     private String phoneNumber;
-    private List<Accountable> accounts = new ArrayList<Accountable>();
+    private List<Accountable> accounts = new ArrayList<>();
 
     //Method
     public BankCustomer(){}
@@ -21,7 +21,7 @@ public class BankCustomer {
 
         return accountsArr;
     }
-    public void addCount(Accountable newAccount){
+    public void addAccount(Accountable newAccount){
         accounts.add(newAccount);
     }
     public boolean isVip(){
