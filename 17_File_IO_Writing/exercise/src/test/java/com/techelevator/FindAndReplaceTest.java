@@ -107,7 +107,7 @@ public class FindAndReplaceTest {
      *
      * @param searchStr
      */
-    private void invoke(String searchStr) {
+    private void invoke(String searchStr) throws IOException {
         String userInput = concatWithNewLineFeed(searchStr,replacementStr,srcFile.getAbsolutePath(),destFile.getAbsolutePath());
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
         FindAndReplace.main(null);
