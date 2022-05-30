@@ -13,7 +13,7 @@ try(Scanner scan = new Scanner(System.in)) {
             "[path-to-the-file]: ");
     File searchedFile = new File(scan.nextLine());
 
-    System.out.println("What is the search word you are looking for? ");
+    System.out.println("What is the search word you are looking for?");
     String wordSearched = ""+ scan.nextLine()+"";
 
     try (Scanner userInput = new Scanner(searchedFile)){
