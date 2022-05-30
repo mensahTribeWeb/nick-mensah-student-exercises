@@ -20,18 +20,16 @@ public class WordSearch {
         boolean isCaseSensitive = answer.equalsIgnoreCase("y");
         try {
             Scanner userInput = new Scanner(searchedFile);
-            int lineNumber = 1;
+            int lineNumber = 0;
             String lineVerification = userInput.nextLine();
             while (userInput.hasNextLine()) {
                 if (isCaseSensitive) {
-
-
                     lineNumber++;
                     if (lineVerification.contains(wordSearched)) {
                         System.out.println(lineNumber + ")" + " " + lineVerification);
                     }
                 } else if (answer.equalsIgnoreCase("n")) {
-                    lineNumber = 1;
+                    lineNumber = 0;
                     while (userInput.hasNextLine()) {
                         lineVerification = userInput.nextLine();
                         lineNumber++;
