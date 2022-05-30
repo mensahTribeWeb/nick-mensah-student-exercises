@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ public class WordSearchTest {
     }
 
     @Test
-    public void caseInsensitiveSearch_LineNumbers() throws IOException {
+    public void caseInsensitiveSearch_LineNumbers() throws Exception {
         String searchTerm = "nearly";
         // we don't ask for this in the first part of this exercise but we still need to capture this
         String caseSensitive = "N";
@@ -64,7 +63,7 @@ public class WordSearchTest {
 
 
     @Test
-    public void caseInsensitiveSearch_LineText() throws IOException {
+    public void caseInsensitiveSearch_LineText() throws Exception {
         String searchTerm = "nearly";
         String caseSensitive = "N";
         String userInput = concatWithNewLineFeed(TEST_TEXT_FILE,searchTerm,caseSensitive);
@@ -109,7 +108,7 @@ public class WordSearchTest {
     }
 
     @Test
-    public void caseSensitiveSearch_LineNumbers() throws IOException {
+    public void caseSensitiveSearch_LineNumbers() throws Exception {
         String searchTerm = "nearly";
         // we don't ask for this in the first part of this exercise but we still need to capture this
         String caseSensitive = "Y";
@@ -147,7 +146,7 @@ public class WordSearchTest {
     }
 
     @Test
-    public void caseSensitiveSearch_LineText() throws IOException {
+    public void caseSensitiveSearch_LineText() throws Exception {
         String searchTerm = "nearly";
         String caseSensitive = "Y";
         String userInput = concatWithNewLineFeed(TEST_TEXT_FILE,searchTerm,caseSensitive);
