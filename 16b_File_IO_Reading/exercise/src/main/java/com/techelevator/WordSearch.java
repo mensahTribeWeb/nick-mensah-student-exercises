@@ -26,7 +26,7 @@ public class WordSearch {
                 if (isCaseSensitive) {
 
 
-                    //lineNumber++;
+                    lineNumber++;
                     if (lineVerification.contains(wordSearched)) {
                         System.out.println(lineNumber + ")" + " " + lineVerification);
                     }
