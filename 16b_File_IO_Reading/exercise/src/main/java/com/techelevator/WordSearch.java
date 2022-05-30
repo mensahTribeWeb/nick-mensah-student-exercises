@@ -2,7 +2,6 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class WordSearch {
@@ -32,15 +31,14 @@ try(Scanner scan = new Scanner(System.in)) {
             }
         }
         else if(answer.equalsIgnoreCase("n")){
+             lineNumber = 0;
             while (userInput.hasNextLine()){
                 String lineVerification = userInput.nextLine();
-              lineNumber++;
-              if(lineVerification.toLowerCase(Locale.ROOT).contains(wordSearched.toLowerCase()) ){
+                lineNumber++;
+                if(lineVerification.toLowerCase().contains(wordSearched.toLowerCase())){
                   System.out.println(lineNumber +")"+" "+lineVerification);
               }
             }
-        }else{
-            System.out.println("Please enter valid word or file");
         }
     }catch (FileNotFoundException e){
         System.out.println("Word not found");
