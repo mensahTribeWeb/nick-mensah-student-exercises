@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class WordSearch {
 	public static void main(String[] args) throws FileNotFoundException,Exception {
-try(Scanner scan = new Scanner(System.in)) {
+        Scanner scan = new Scanner(System.in);
+try {
 
     System.out.println("What is the fully qualified name of the file that should be searched?\n"+
             "[path-to-the-file]: ");
@@ -19,7 +20,7 @@ try(Scanner scan = new Scanner(System.in)) {
         System.out.println("Should the search be case sensitive? (Y\\N)");
         String answer = scan.nextLine();
 
-        int lineNumber = 0;
+        int lineNumber = 1;
 
         if(answer.equalsIgnoreCase("y")) {
             while (userInput.hasNextLine()){
@@ -44,6 +45,8 @@ try(Scanner scan = new Scanner(System.in)) {
         System.out.println("Word not found");
     }
 
+} catch (Exception e) {
+    e.printStackTrace();
 }
     }
 }
