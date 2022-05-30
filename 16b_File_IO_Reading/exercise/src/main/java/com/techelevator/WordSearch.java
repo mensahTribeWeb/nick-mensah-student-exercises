@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class WordSearch {
-    public static void main(String[] args) throws FileNotFoundException, Exception {
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         System.out.println("What is the fully qualified name of the file that should be searched?\n" +
                 "[path-to-the-file]: ");
@@ -20,30 +20,24 @@ public class WordSearch {
         boolean isCaseSensitive = answer.equalsIgnoreCase("y");
         try {
             Scanner userInput = new Scanner(searchedFile);
-            int lineNumber = 0;
-            String lineVerification = userInput.nextLine();
+            int lineNumber = 1;
             while (userInput.hasNextLine()) {
+                String lineVerification = userInput.nextLine();
                 if (isCaseSensitive) {
-                    lineNumber++;
                     if (lineVerification.contains(wordSearched)) {
                         System.out.println(lineNumber + ")" + " " + lineVerification);
                     }
-                } else if (answer.equalsIgnoreCase("n")) {
-                    lineNumber = 0;
-                    while (userInput.hasNextLine()) {
-                        lineVerification = userInput.nextLine();
-                        lineNumber++;
-                        if (lineVerification.toLowerCase().contains(wordSearched.toLowerCase())) {
-                            System.out.println(lineNumber + ")" + " " + lineVerification);
-                        }
+                } else  {
+                    if (lineVerification.toLowerCase().contains(wordSearched.toLowerCase())) {
+                        System.out.println(lineNumber + ")" + " " + lineVerification);
                     }
                 }
-
+                lineNumber++;
             }
 
+
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("File not Found");
         }
     }
 }
-//test
