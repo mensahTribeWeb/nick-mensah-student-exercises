@@ -21,18 +21,19 @@ public class WordSearch {
         try {
             Scanner userInput = new Scanner(searchedFile);
             int lineNumber = 1;
+            String lineVerification = userInput.nextLine();
             while (userInput.hasNextLine()) {
                 if (isCaseSensitive) {
 
-                    String lineVerification = userInput.nextLine();
-                    lineNumber++;
+
+                    //lineNumber++;
                     if (lineVerification.contains(wordSearched)) {
                         System.out.println(lineNumber + ")" + " " + lineVerification);
                     }
                 } else if (answer.equalsIgnoreCase("n")) {
                     lineNumber = 1;
                     while (userInput.hasNextLine()) {
-                        String lineVerification = userInput.nextLine();
+                        lineVerification = userInput.nextLine();
                         lineNumber++;
                         if (lineVerification.toLowerCase().contains(wordSearched.toLowerCase())) {
                             System.out.println(lineNumber + ")" + " " + lineVerification);
