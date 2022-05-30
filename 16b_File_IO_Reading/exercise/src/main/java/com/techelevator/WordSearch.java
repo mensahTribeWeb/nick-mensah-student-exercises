@@ -32,7 +32,7 @@ try {
         }
     }
     else if(answer.equalsIgnoreCase("n")){
-         lineNumber = 0;
+         lineNumber = 1;
         while (userInput.hasNextLine()){
             String lineVerification = userInput.nextLine();
             lineNumber++;
