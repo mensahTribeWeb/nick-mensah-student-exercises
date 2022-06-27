@@ -5,5 +5,6 @@
 -- (51 rows)
 SELECT state_name||' ('||state_nickname||')'  AS state_and_nickname
 FROM state
-WHERE state_nickname IS NOT NULL;
+WHERE state_nickname IS NOT NULL
+ORDER BY state_nickname ASC;
 
