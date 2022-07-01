@@ -3,7 +3,7 @@
 -- (1 row)✔
 SELECT AVG(population) AS average_population
 FROM state
-WHERE census_region = 'West'
+WHERE census_region = 'West';
 
 
 
